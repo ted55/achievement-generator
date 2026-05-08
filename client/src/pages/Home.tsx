@@ -79,14 +79,14 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
       <header className="bg-white border-b border-gray-200">
-        <div className="max-w-4xl mx-auto px-4 py-3">
+        <div className="max-w-4xl mx-auto px-4 py-8">
           <h1 className="text-3xl font-bold text-gray-900">達成文生成アプリ</h1>
           <p className="text-gray-600 mt-1">目標とキーワードから、4パターンの達成文を自動生成して、Googleカレンダーに追加できます。</p>
         </div>
       </header>
 
-      <main className="max-w-4xl mx-auto px-4 py-3">
-        <div className="bg-white rounded-lg shadow-sm p-4 mb-4 space-y-4">
+      <main className="max-w-4xl mx-auto px-4 py-8">
+        <div className="bg-white rounded-lg shadow-sm p-8 mb-8 space-y-6">
 
           {/* Goal */}
           <div className="space-y-2">
@@ -111,8 +111,10 @@ export default function Home() {
 
           {/* Date */}
           <div className="space-y-2">
-            <Label htmlFor="deadline" className="text-base font-semibold">今日</Label>
+            <Label className="text-base font-semibold">今日</Label>
             <div className="flex items-center gap-3">
+              <span className="text-gray-700 font-medium">{formatDateWithDay(deadline)}</span>
+              <span className="text-gray-400">→</span>
               <input
                 id="deadline"
                 type="date"
@@ -120,7 +122,6 @@ export default function Home() {
                 onChange={(e) => setDeadline(e.target.value)}
                 className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
-              <span className="text-gray-700 font-medium">{formatDateWithDay(deadline)}</span>
             </div>
           </div>
 
