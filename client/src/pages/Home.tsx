@@ -33,7 +33,10 @@ export default function Home() {
   const [requiredKws, setRequiredKws] = useState<string[]>([]);
   const [optionalKws, setOptionalKws] = useState<string[]>([]);
   const [deadline, setDeadline] = useState(() => {
-    return new Date().toISOString().split("T")[0];
+    // JSTで今日の日付を取得（UTC+9）
+    const now = new Date();
+    const jst = new Date(now.getTime() + 9 * 60 * 60 * 1000);
+    return jst.toISOString().split("T")[0];
   });
   const [selectedTone, setSelectedTone] = useState<ToneType>("gratitude");
 
